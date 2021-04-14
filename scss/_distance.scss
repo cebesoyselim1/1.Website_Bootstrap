@@ -1,0 +1,8 @@
+$distance-sm : 1rem;
+$distance-md : 2rem;
+$distance-lg : 4rem;
+$distance-section : 6rem;
+
+@mixin border-50 {
+    border-radius: 50%;
+}

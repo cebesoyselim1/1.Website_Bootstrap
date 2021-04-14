@@ -1,0 +1,75 @@
+@mixin section-title($color){
+    color: $color;
+    font-size: 3rem;
+    text-transform: uppercase;
+    text-align: center;
+    word-spacing: .2rem;
+    font-weight: 600;
+}
+
+@mixin section-subtitle($color){
+    color: $color;
+    padding-bottom: 3rem;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+    font-size: 1.2rem;
+}
+
+@mixin section-btn($bgcolor,$txtcolor) {
+    background-color: $bgcolor;
+    color: $txtcolor;
+    display: inline-block;
+    padding: 1rem 2.4rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 1rem;
+    transition: all .3s;
+    &:hover{
+        background-color: $txtcolor;
+        color: $bgcolor;
+    }
+}
+
+@mixin flex-items-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin absolute-center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+@mixin bg-cover($bg-attachement){
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: $bg-attachement;
+    object-fit: cover;
+    object-position: center;
+}
+
+@mixin social-link($color1,$color2){
+    color: $color1;
+    font-size: 1.6rem;
+    width: 5px;
+    height: 5px;
+    padding: 1.8rem;
+    margin: 0 .5rem;
+    border: 2px solid $color1;
+    border-radius: 50%;
+    @include flex-items-center;
+    transition: all .3s;
+
+    &:hover{
+        background-color: $color1;
+        color: $color2;
+        transform: scale(1.2);
+    }
+}

@@ -1,0 +1,407 @@
+@import "_parts.scss";
+@import "_colors.scss";
+@import "_distance.scss";
+@import "_media";
+@import "_fonts";
+
+/*font-family: 'Roboto', sans-serif;*/
+
+*{margin: 0; padding: 0; box-sizing: border-box; font-family: $font-loto;}
+ul{list-style-type: none;}
+a{text-decoration: none !important;}
+@include media-html;
+/* Header */
+
+header .navbar{
+    background-color: $color-black;
+    &-logo{
+        color: $color-yellow;
+        font-family: $font-indie-flower;
+        font-weight: $font-bold;
+        text-transform: uppercase;
+        font-size: 2.2rem;
+        &:hover{
+            color: darken($color-yellow,20%);
+        }
+    }
+
+    &-toggler{
+        color: $color-yellow !important;
+    }
+
+    .nav-link{
+        color: $color-white;
+        font-weight: $font-w-500;
+        transition: all .5s;
+        &:hover{
+            color: $color-yellow;
+        }
+    }
+}
+
+/* Header End */
+
+/* Section Header */
+
+.section-header{
+    @include media-xxl{
+        height: 800px;
+    }
+    @include media-xl{
+        height: 800px;
+    }
+    @include media-lg{
+        height: 700px;
+    }
+    @include media-md{
+        height: 600px;
+    }
+    @include media-sm{
+        height: 500px;
+    }
+    background-image: url("../img/header/header-bg1.jpg");
+    @include bg-cover(fixed);
+    
+    &-subtitle{
+        margin-bottom: $distance-md;
+        font-style: italic;
+        font-size: 3rem;
+    }
+
+    &-title{
+        margin-bottom: $distance-md;
+        font-size: 4rem;
+        font-weight: $font-bold;
+    }
+
+    &-btn{
+        @include section-btn($color-yellow,$color-white);
+    }
+}
+
+/* Section Header End */
+
+/* Section Services */
+
+.section-services{
+    padding: $distance-section;
+    &-title{
+        @include section-title($color-dark);
+    }
+
+    &-subtitle{
+        @include section-subtitle($color-dark);
+    }
+
+    &-item{
+        @include flex-items-center;
+        flex-direction: column;
+        &-logo{
+            color: $color-yellow;
+            border: 3px solid $color-yellow;
+            width: 2rem;
+            height: 2rem;
+            @include border-50;
+            padding: 3rem;
+            position: relative;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+
+            i{
+                @include absolute-center;
+            }
+        }
+
+        &-content{
+            margin-bottom: $distance-md;
+            &-title{
+                font-weight: $font-w-600;
+            }
+            
+        }
+        &-content:last-child{
+            margin-bottom: 0;
+        }
+    }
+}
+
+/* Section Services End */
+
+/* Portfolio */
+
+.section-portfolio{
+    padding: $distance-section;
+    background-color: $color-gray;
+    &-title{
+        @include section-title($color-dark);
+    }
+
+    &-subtitle{
+        @include section-subtitle($color-dark);
+    }
+
+    &-cards{
+        &-item{
+            margin-bottom: 2rem;
+            .card-img-top{
+                width: 100%;
+                height: 200px;
+                @include bg-cover(initial);
+            }
+        }
+        &-item:nth-child(5){
+            margin-bottom: 0rem;
+        }
+    }
+
+    
+}
+
+/* Portfolio End */
+
+/* About Us */
+.section-about{
+    padding: $distance-section;
+    position: relative;
+
+    &-line{
+        @include media-md{
+            display: none;
+        }
+        @include media-lg{
+            @include absolute-center;
+            z-index: -1;
+        }
+        @include media-xl{
+            @include absolute-center;
+            z-index: -1;
+        }
+        @include media-xxl{
+            @include absolute-center;
+            z-index: -1;
+        }
+    }
+
+    &-title{
+        @include section-title($color-dark);
+    }
+
+    &-subtitle{
+        @include section-subtitle($color-dark);
+    }
+
+    &-event{
+        
+        &-content{
+            @include media-md{
+                text-align: center !important;
+                margin: .5rem 0;
+            }
+            &-title{
+                font-weight: $font-bold;
+                font-size: 1.8rem;
+            }
+        }
+
+        &-img{
+            display: block;
+            width:200px;
+            height: 200px;
+            @include border-50;
+            border: 5px solid $color-darkgray;
+            object-fit:cover;
+            object-position: left;
+            @include media-md{
+                margin: .5rem 0;
+            }
+        }
+
+        &-img:nth-child(odd){
+            @include media-md{
+                margin-bottom: 2rem;
+            }
+        }
+        
+
+    }
+
+    &-event::after{
+        @include media-md{
+            content: "";
+            border-bottom: .2rem solid rgba(0,0,0,.3);
+            display: block;
+            width: 100%;
+            padding-bottom: 2rem;
+        }   
+    }
+
+    &-event:last-child::after{
+        @include media-md{
+            display: none;
+        }
+    }
+}
+/* About Us End */
+
+/* Team */
+
+.section-team{
+    background-color: $color-gray;
+    padding: $distance-section;
+    &-title{
+        @include section-title($color-dark);
+    }
+
+    &-subtitle{
+        @include section-subtitle($color-dark);
+    }
+
+    .team-member{
+        text-align: center;
+        @include media-md{
+            margin-bottom: 5rem;
+        }
+        &-img{
+            width: 100%;
+            height: auto;
+            @include border-50;
+            border: 3px solid $color-yellow;
+            margin-bottom: 2rem;
+            @include media-md{
+                width: 50%;
+            }
+            @include media-sm{
+                width: 80%;
+            }
+        }
+
+        &-name{
+            font-weight: $font-w-600;
+            font-size: 1.4rem;
+        }
+
+        &-statue{
+            margin-bottom: 1rem;
+        }
+
+        &-social{
+            &-link{
+                @include social-link($color-dark,$color-white);
+            }
+            
+        }
+    }
+
+    .team-member:last-child{
+        @include media-md{
+            margin-bottom: 0;
+        }
+    }
+}
+
+/* Team End */
+
+/* Partner */
+
+.section-partner{
+    &-container{
+        .partner-item{
+            text-align: center;
+            border: 2px solid $color-darkgray;
+            padding: 1px;
+            &-img{
+                height: 90px;
+                object-position: center;
+                object-fit: fill;
+                @include media-lg{
+                    height: 75px;
+                }
+            }
+        }
+        .partner-item:not(:last-child){
+            @include media-md{
+                border-bottom-color: transparent;
+                border-right-color: $color-darkgray !important;
+            }
+            @include media-lg{
+                border-right-color: transparent;
+            }
+            @include media-xl{
+                border-right-color: transparent;
+            }
+            @include media-xxl{
+                border-right-color: transparent;
+            }
+        }
+    }
+}
+
+/* Partner End */
+
+/* Contact */
+
+.section-contact{
+    padding: $distance-section;
+    background-image: url("../img/contact/map-image.png");
+    @include bg-cover(fixed);
+    background-color: $color-black;
+    color: $color-white;
+    
+    &-title{
+        @include section-title($color-white);
+    }
+    &-subtitle{
+        @include section-subtitle($color-white);
+    }
+
+    
+    .section-contact-inpText{
+        display: block;
+        padding: 1.4rem .6rem;
+        font-weight: $font-bold;
+        @include media-md{
+            margin-bottom: 1rem;
+        }
+    }
+
+    .section-contact-inpTextarea{
+        display: block;
+        padding: .5rem .6rem;
+        font-weight: $font-bold;
+        @include media-md{
+            height: 75px;
+        }
+    }
+
+    &-submit{
+        @include section-btn($color-yellow,$color-white);
+    }
+}
+
+/* Contact End */
+
+/* Footer */
+.footer{
+    margin: 2rem 0;
+    color: $color-dark;
+    &-social{
+        @include flex-items-center;
+        flex-direction: row;
+        &-link{
+            @include social-link($color-black,$color-white);
+        }
+        padding: 2rem;
+    }
+
+    &-copyright{
+        padding: 2rem;
+        justify-self: center;
+        align-self: center;
+    }
+}
+/* Footer End */
+
+
+
+
